@@ -1,0 +1,41 @@
+Circuito T1
+*
+* NGSPICE simulation script
+* Linear Circuit Analysis
+*
+
+*Indepedent Voltage Source
+Va 1 0 5.170384718391707
+
+*Independent Current Source
+Id 8 5 1.0128137373779453m
+
+*Resistors
+R1 1 2 1.0327989730000082k
+R2 3 2 2.076252905365045k 
+R3 2 4 3.0442587081175145k
+R4 4 0 4.018331237741675k
+R5 4 5 3.051656609797744k
+R6 0 6 2.0564303557801273k
+R7 7 8 1.016272405432133k
+
+*Dummy 0V-Voltage Source to Measure Current through R6 (Ic)
+Vx 6 7 0.0
+
+*Current Controlled Voltage Source
+Hc 4 8 Vx 8.075802165837253k
+
+*Voltage Controlled Current Source
+Gb 5 3 (2,4) 7.039798806252302m
+
+
+.model linearcircuit NPN
+.control
+op
+echo "op_TAB"
+print all
+echo "op_END"
+quit
+.endc
+
+.end
