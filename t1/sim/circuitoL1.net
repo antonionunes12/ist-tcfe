@@ -4,6 +4,8 @@ Circuito T1
 * Linear Circuit Analysis
 *
 
+.options savecurrents
+
 *Indepedent Voltage Source
 Va 1 0 5.22552047598
 
@@ -32,6 +34,11 @@ Gb 5 3 (2,4) 7.3172497028m
 .model linearcircuit NPN
 .control
 op
+
+echo "********************************************"
+echo  "Operating point"
+echo "********************************************"
+
 echo "op_TAB"
 print all
 echo "op_END"
